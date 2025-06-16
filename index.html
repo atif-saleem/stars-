@@ -1,36 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .root{
-            width: 100px;
-            text-align: center;
-        }
+      body{
+        display: flex;
+        gap: 20px;
+
+      }
+      .root {
+        width: 200px;
+        text-align: center;
+        border: 1px solid green;
+      }
     </style>
-</head>
-<body>
-<div class="root"></div>
-
-
-  <script>
-    let star=document.querySelector(".root")
-let a="*";
-let count=0;
-let spaces=["    ","   ","  "," ",""];
-for(let i=1 ;i<11;i++){
-    if(i%2!=0){
-    console.log(spaces[count],a)
-    star.append(a);
-    star.innerHTML+="<br>";
+  </head>
+  <body>
+    <div class="root">
+      <h3>For Loop</h3>
+    </div>
+    <div class="root root4">
+      <h3>For OF loop</h3>
+    </div>
+    <div class="root root1">
+      <h3>forEach Loop</h3>
+    </div>
+    <div class="root root2">
+      <h3 class="foreach">while Loop</h3>
+    </div>
+    <div class="root root3">
+      <h3>Do while loop</h3>
+    </div>
     
 
-    count+=1;
-}
-    a+="*";
-}
-  </script>  
-</body>
+    <script>
+      let star = document.querySelector(".root");
+      let a = "*";
+      let count = 0;
+      let spaces = ["    ", "   ", "  ", " ", ""];
+      for (let i = 1; i < 11; i++) {
+        if (i % 2 != 0) {
+          console.log(spaces[count], a);
+          star.append(a);
+          star.innerHTML += "<br>";
+
+          count += 1;
+        }
+        a += "*";
+      }
+      let starStr = ["*", "***", "*****", "*******", "*********"];
+      let count1 = 0;
+      let foreachLoop = document.querySelector(".root1");
+      starStr.forEach(function (elem) {
+        console.log(spaces[count1], elem);
+        foreachLoop.append(elem);
+        // foreachLoop.innerHTML = "<br>";
+        foreachLoop.innerHTML += "<br>";
+        count1 += 1;
+      });
+      let whileLoop = document.querySelector(".root2");
+      let count2 = 0;
+      let prints = starStr.length;
+      while (prints > 0) {
+        console.log(spaces[count2], starStr[count2]);
+        whileLoop.append(starStr[count2]);
+        whileLoop.innerHTML += "<br>";
+        prints--;
+        count2++;
+      }
+      let count3 = 0;
+      let whileStar = starStr.length;
+      let dowhileLoop = document.querySelector(".root3");
+      do {
+        console.log(spaces[count3], starStr[count3]);
+        whileStar--;
+        dowhileLoop.append(starStr[count3]);
+        dowhileLoop.innerHTML += "<br>";
+        count3++;
+      } while (whileStar > 0);
+      let count4 = 0;
+      let forOfLoop = document.querySelector(".root4");
+      for (let star of starStr) {
+        console.log(spaces[count4], star);
+        forOfLoop.append(star);
+        forOfLoop.innerHTML += "<br>";
+        count4++;
+      }
+    </script>
+  </body>
 </html>
